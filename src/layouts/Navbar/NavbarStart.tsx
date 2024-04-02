@@ -1,4 +1,5 @@
 import { BiMenu } from "react-icons/bi";
+import { NavLink } from "react-router-dom";
 import { v4 } from "uuid";
 type Props = {
   categories: string[],
@@ -8,7 +9,7 @@ type Props = {
 const NavbarStart = ({categories, setSelected}:Props) => {
   return (
     <div className="navbar-start">
-      <a className="hidden md:flex btn btn-ghost text-xl">Mini-Ecommerce</a>
+      <NavLink to={"/"} className="hidden md:flex btn btn-ghost text-xl">Mini-Ecommerce</NavLink>
       <div className="dropdown md:hidden">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
           <BiMenu className="size-5"/>
@@ -19,7 +20,7 @@ const NavbarStart = ({categories, setSelected}:Props) => {
         >
           {categories?.map((cat: string) => (
             <li key={v4()}>
-              <a role="button" onClick={() => { setSelected(cat) }}>{cat}</a>
+              <NavLink to={"/"} role="button" onClick={() => { setSelected(cat) }}>{cat}</NavLink>
             </li>
           ))}
         </ul>

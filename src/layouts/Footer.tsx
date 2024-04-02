@@ -5,6 +5,14 @@ import { v4 } from "uuid";
 
 const Footer = () => {
   const { categories, setSelected } = useContext(categoriesContext)
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className="footer px-10 py-5 2xl:py-10 bg-base-200 text-base-content">
       <aside>
@@ -15,7 +23,7 @@ const Footer = () => {
         <h6 className="footer-title">Categories</h6>
         {
           categories.map((cat: string) => (
-            <a role="button" onClick={() => { setSelected(cat) }} className="link link-hover" key={v4()}>{cat}</a>
+            <a role="button" onClick={() => { scrollToTop(); setSelected(cat);}} className="link link-hover" key={v4()}>{cat}</a>
           ))
         }
       </nav>

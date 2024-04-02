@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { v4 } from "uuid";
 
 type Props = {
@@ -12,7 +13,7 @@ const NavbarCenter = ({categories, setSelected}:Props) => {
         <ul className="hidden md:flex menu menu-horizontal px-1">
           {categories?.map((cat: string) => (
             <li key={v4()}>
-              <a role="button" onClick={()=>{setSelected(cat)}}>{cat}</a>
+              <NavLink to={"/"} role="button" onClick={()=>{setSelected(cat)}}>{cat}</NavLink>
             </li>
           ))}
         </ul>

@@ -1,4 +1,5 @@
 import { BsCart2 } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
 
 const NavbarEnd = () => {
   return (
@@ -26,9 +27,9 @@ const NavbarEnd = () => {
               <span className="text-info">Subtotal: $999</span>
             </div>
             <div className="card-actions">
-              <button className="btn btn-primary btn-outline min-h-0 h-fit mx-auto py-2 rounded-full hover:!text-white">
+              <NavLink to={"/cart"} className="btn btn-primary btn-outline min-h-0 h-fit mx-auto py-2 rounded-full hover:!text-white">
                 View cart
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>
