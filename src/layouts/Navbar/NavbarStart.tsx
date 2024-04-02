@@ -1,9 +1,11 @@
 import { BiMenu } from "react-icons/bi";
+import { v4 } from "uuid";
 type Props = {
-    categories: string[]
+  categories: string[],
+  setSelected: (category: string | null) => void
 }
 
-const NavbarStart = ({categories}:Props) => {
+const NavbarStart = ({categories, setSelected}:Props) => {
   return (
     <div className="navbar-start">
       <a className="hidden md:flex btn btn-ghost text-xl">Mini-Ecommerce</a>
@@ -16,8 +18,8 @@ const NavbarStart = ({categories}:Props) => {
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
           {categories?.map((cat: string) => (
-            <li>
-              <a href="">{cat}</a>
+            <li key={v4()}>
+              <a role="button" onClick={() => { setSelected(cat) }}>{cat}</a>
             </li>
           ))}
         </ul>

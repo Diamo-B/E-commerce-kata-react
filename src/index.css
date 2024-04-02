@@ -5,3 +5,23 @@
 html, body, #root {
   height: 100%;
 }
+
+.stars {
+  display: flex;
+}
+
+.star-icon {
+  @apply text-transparent size-4;
+}
+
+.filled {
+  @apply fill-orange-500 stroke-white stroke-2;
+}
+
+.half-filled {
+  clip-path: inset(0 50% 0 0); /* Clip the filled portion to show only half */
+}
+
+.outlined {
+  @apply stroke-white stroke-[10px]
+}

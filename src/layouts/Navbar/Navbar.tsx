@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
 import NavbarStart from "./NavbarStart";
 import NavbarCenter from "./NavbarCenter";
 import NavbarEnd from "./NavbarEnd";
-const Navbar = () => {
-  const [categories, setCategories] = useState<string[]>([]);
+import { useContext } from "react";
+import { categoriesContext } from "../../context/categoriesContext";
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => setCategories(json))
-      .catch((err) => console.error(err));
-  }, []);
+const Navbar = () => {
+  const {categories, setSelected} = useContext(categoriesContext);
 
   return (
-    <div className="navbar bg-base-100">
-      <NavbarStart categories={categories}/>
-      <NavbarCenter categories={categories} />
+    <div className="navbar bg-base-100 border-b border-neutral-600">
+      <NavbarStart categories={categories} setSelected={setSelected}/>
+      <NavbarCenter categories={categories} setSelected={setSelected}/>
       <NavbarEnd/>
     </div>
   );
