@@ -23,7 +23,7 @@ const Home = () => {
     }
 
     return (
-        <div className="py-5 px-10 h-full flex flex-col">
+        <div className={`h-full py-5 px-10 flex flex-col`}>
             <div className="flex justify-between items-center">
                 <p className="font-semibold text-lg capitalize">{selectedCategory || "All Products"}</p>
                 <button className="btn btn-error btn-outline rounded-full min-h-0 h-fit py-2 px-5 hover:!text-white" disabled={!selectedCategory} onClick={removeFilter}>
@@ -31,7 +31,7 @@ const Home = () => {
                     <MdRemoveCircleOutline />
                 </button>
             </div>
-            <div className="w-full sm:h-dvh md:h-full py-5 flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 justify-items-center place-content-center">
+            <div className="w-full  md:h-full py-5 flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 justify-items-center place-content-center">
                 {
                     filteredProducts.length > 0 ?
                         filteredProducts.map((prod: Product) => (

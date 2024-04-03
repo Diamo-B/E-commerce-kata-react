@@ -1,6 +1,8 @@
 import { BsCart2 } from "react-icons/bs";
 import { Product } from "../types/Product";
 import Rating from "./Rating";
+import { useContext } from "react";
+import { cartContext } from "../context/cartContext";
 
 
 type Props = {
@@ -8,6 +10,8 @@ type Props = {
 }
 
 const ProductCard = ({ product }: Props) => {
+
+    const {addProduct} = useContext(cartContext)
 
     const sliceProductTitle = (title: string, maxLength: number = 15): string => {
         if (title.length > maxLength) {
@@ -34,7 +38,7 @@ const ProductCard = ({ product }: Props) => {
             </div>
             <div className="flex justify-between items-center">
                 <p className="text-center font-bold text-lg">$ {product.price}</p>
-                <button className="btn btn-outline btn-primary !min-h-0 h-fit py-1 rounded-full group">
+                <button className="btn btn-outline btn-primary !min-h-0 h-fit py-1 rounded-full group" onClick={()=>{addProduct(product)}}>
                     <BsCart2 className="group-hover:text-white" />
                 </button>
             </div>

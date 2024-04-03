@@ -9,7 +9,7 @@ type Props = {
 const NavbarCenter = ({categories, setSelected}:Props) => {
     return ( 
         <div className="navbar-center">
-        <a className="flex md:hidden btn btn-ghost text-xl">Mini-Ecommerce</a>
+        <NavLink to={"/"} className="flex md:hidden btn btn-ghost text-xl" role="button" onClick={() => setSelected(null)} >Mini-Ecommerce</NavLink>
         <ul className="hidden md:flex menu menu-horizontal px-1">
           {categories?.map((cat: string) => (
             <li key={v4()}>

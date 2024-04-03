@@ -1,6 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import FullPageLayout from "./layouts/FullPageLayout";
 import Home from "./components/Home";
+import Cart from "./components/Cart/Cart";
 
 const routes = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const routes = createBrowserRouter([
         {
           path: "/home",
           element: <Home />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
         }
       ],
     },

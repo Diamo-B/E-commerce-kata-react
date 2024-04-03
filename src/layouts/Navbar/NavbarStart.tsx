@@ -9,7 +9,7 @@ type Props = {
 const NavbarStart = ({categories, setSelected}:Props) => {
   return (
     <div className="navbar-start">
-      <NavLink to={"/"} className="hidden md:flex btn btn-ghost text-xl">Mini-Ecommerce</NavLink>
+      <NavLink to={"/"} className="hidden md:flex btn btn-ghost text-xl" role="button" onClick={() => setSelected(null)}>Mini-Ecommerce</NavLink>
       <div className="dropdown md:hidden">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
           <BiMenu className="size-5"/>
