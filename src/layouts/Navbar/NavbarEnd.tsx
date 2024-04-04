@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
 
 const NavbarEnd = () => {
-  const { products } = useContext(cartContext);
+  const { items } = useContext(cartContext);
   return (
     <div className="navbar-end">
       <div className="dropdown dropdown-end">
@@ -16,7 +16,7 @@ const NavbarEnd = () => {
           <div className="indicator">
             <BsCart2 className="size-5" />
             <span className="badge badge-sm indicator-item bg-base-300 group-hover:text-orange-500">
-              {products.length}
+              {items.length}
             </span>
           </div>
         </NavLink>

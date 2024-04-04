@@ -3,6 +3,7 @@ import { Product } from "../types/Product";
 import Rating from "./Rating";
 import { useContext } from "react";
 import { cartContext } from "../context/cartContext";
+import sliceProductTitle from "../utils/sliceProductTitle";
 
 
 type Props = {
@@ -10,16 +11,7 @@ type Props = {
 }
 
 const ProductCard = ({ product }: Props) => {
-
-    const {addProduct} = useContext(cartContext)
-
-    const sliceProductTitle = (title: string, maxLength: number = 15): string => {
-        if (title.length > maxLength) {
-            return title.slice(0, maxLength) + " ...";
-        } else {
-            return title.padEnd(maxLength);
-        }
-    }
+    const {addCartItem} = useContext(cartContext)
 
     return (
         <div className="w-56 py-5 px-5 border rounded-lg border-neutral flex flex-col gap-2 hover:shadow-xl hover:cursor-pointer">
@@ -38,7 +30,7 @@ const ProductCard = ({ product }: Props) => {
             </div>
             <div className="flex justify-between items-center">
                 <p className="text-center font-bold text-lg">$ {product.price}</p>
-                <button className="btn btn-outline btn-primary !min-h-0 h-fit py-1 rounded-full group" onClick={()=>{addProduct(product)}}>
+                <button className="btn btn-outline btn-primary !min-h-0 h-fit py-1 rounded-full group" onClick={()=>{addCartItem(product)}}>
                     <BsCart2 className="group-hover:text-white" />
                 </button>
             </div>
